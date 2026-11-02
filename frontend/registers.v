@@ -17,12 +17,12 @@ module registers(
     // TODO: check if this should be moved in the simulation bench
     initial begin
         for (i = 0; i < 32; i = i + 1) begin
-            registers[i] = 32'b0;
+            registers[i] = i;
         end
     end
 
     always @(posedge clk) begin
-        if (reg_write) begin
+        if (reg_write && write_reg != 5'b00000) begin
             registers[write_reg] <= write_data;
         end
     end
@@ -30,3 +30,4 @@ module registers(
     assign read_data1 = registers[read_reg1];
     assign read_data2 = registers[read_reg2];
 endmodule
+
