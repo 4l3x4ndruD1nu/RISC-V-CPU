@@ -3,7 +3,6 @@
 module imm_gen(input [31:0] in, output reg [31:0] out);
     // i used localparam because it apparently cannot be modified by other modules
     // and that seems cool to me
-    // also i like clean code <3
     localparam OP_BEQ   = 7'b1100011;
     localparam OP_BNE   = 7'b1100011;
     localparam OP_BLT   = 7'b1100011;
@@ -23,6 +22,7 @@ module imm_gen(input [31:0] in, output reg [31:0] out);
     localparam OP_SLLI  = 7'b0010011;
     localparam OP_SRLI  = 7'b0010011;
     localparam OP_SRAI  = 7'b0010011;
+    
     
     wire [6:0] opcode;
     assign opcode = in[6:0];    

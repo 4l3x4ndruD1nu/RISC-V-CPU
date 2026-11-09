@@ -1,4 +1,4 @@
-`timescale 1ns/1ps;
+`timescale 1ns/1ps
 
 module registers(
     input clk,
@@ -14,7 +14,6 @@ module registers(
     reg [31:0] registers[0:31];
     integer i;
     
-    // TODO: check if this should be moved in the simulation bench
     initial begin
         for (i = 0; i < 32; i = i + 1) begin
             registers[i] = i;
