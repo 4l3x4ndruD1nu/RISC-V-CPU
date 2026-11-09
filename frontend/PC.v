@@ -9,7 +9,10 @@ module PC(
         if (res)
             out <= 32'd0;
         else if (write) begin
-            out=in;
+            out <= in;
             end
         end
 endmodule
+
+vreau sa ma ajuti sa fac acest procesor pas cu pas, deocamdata am rezolvat pc, mux21, sumator, IF, memory instr, 
+
