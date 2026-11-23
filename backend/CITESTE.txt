@@ -1,0 +1,41 @@
+RISC-V pipeline - Lucrarea 3 (peste proiectul din Lucrarea 2)
+==============================================================
+
+Ghidul complet (ce linii se schimba, cum functioneaza totul) e in documentul
+"Ghid Lucrarea 3 - procesorul RISC-V pipeline complet".
+
+FISIERE NOI (le adaugi in proiect)
+  control_path.v       unitatea de control (in arhiva profesorilor e data gata facuta)
+  ALUcontrol.v         cerinta 1
+  ALU.v                cerinta 2
+  mux3_1.v             multiplexorul 3:1 pentru forwarding
+  EX.v                 cerinta 3
+  data_memory.v        cerinta 4
+  hazard_detection.v   cerinta 5
+  forwarding.v         cerinta 6
+  ID_EX_reg.v          cerinta 7
+  EX_MEM_reg.v         cerinta 7
+  MEM_WB_reg.v         cerinta 7
+  branch_control.v     calculul lui PCSrc (tabelul de dupa Fig. 5)
+  RISC_V.v             cerinta 8 - top-ul procesorului
+  test_riscv_stud.v    testbench NOU (inlocuieste testbench-ul din Lucrarea 2)
+
+FISIERE MODIFICATE din Lucrarea 2
+  ID.v                 OBLIGATORIU: control_sel + 7 semnale de control + control_path
+  registers.v          RECOMANDAT: bypass WB -> ID (liniile 30-31)
+  IF.v                 optional: ';' de pe linia 1, comentariul de pe linia 14
+  imm_gen.v            optional: ';' de pe linia 1
+
+FISIERE NESCHIMBATE (copiate doar ca proiectul sa fie complet)
+  PC.v, Mux21.v, adder.v, instruction_memory.v, IF_ID_reg.v, code.mem, tb_registers.v
+
+DE SCOS DIN PROIECT
+  RISC_V_IF_ID.v si vechiul test_riscv_stud.v (top-ul si testbench-ul din Lucrarea 2)
+
+extra_verificare/ (NU e nevoie de el la predare)
+  tb_check.v      testbench care compara automat simularea cu valorile din PDF si
+                  scrie la final "REZULTAT: OK" in consola (merge si in Vivado,
+                  setat ca top in locul lui RISC_V_TB)
+  tb_prog.v, teste/*.s, rvasm.py, isa_model.py, run_tests.sh
+                  programele extra (ALU, stall, distanta 3, branch-uri) rulate cu
+                  Icarus Verilog si comparate cu un model al setului de instructiuni

@@ -21,6 +21,7 @@ module registers(
     end
 
     always @(posedge clk) begin
+        
         if (reg_write && write_reg != 5'b00000) begin
             registers[write_reg] <= write_data;
         end

@@ -13,6 +13,3 @@ module PC(
             end
         end
 endmodule
-
-vreau sa ma ajuti sa fac acest procesor pas cu pas, deocamdata am rezolvat pc, mux21, sumator, IF, memory instr, 
-
